@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Git ignore files
+!.gitignore
+
+# Configuration files
+config/config.yaml
+config/template.md
