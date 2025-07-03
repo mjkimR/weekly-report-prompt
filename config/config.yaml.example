@@ -1,0 +1,8 @@
+author: author.name
+
+lang: "ko"  # language
+
+repository:
+  - repository-path
+
+max_diff_lines: 25  # Maximum number of lines to show in a diff
