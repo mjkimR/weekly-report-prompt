@@ -1,5 +1,7 @@
 # Weekly Report Prompt Generator
 
+> **Note**: This is a personal project designed for individual use. 
+
 This tool generates structured prompts for LLM to create weekly development reports based on Git commit data.
 
 ## Purpose
