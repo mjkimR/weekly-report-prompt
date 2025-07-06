@@ -2,22 +2,22 @@
 
 ## Work Done
 
-* {project_name_A}
-    * {main_category_A_1}
-        * {sub_category_A_1}
-            * {detail_A_1}
-            * {detail_A_2}
-        * {sub_category_A_2}
-            * {detail_A_3}
-    * {main_category_A_2}
-        * {sub_category_A_3}
-            * {detail_A_4}
-* {project_name_B}
-    * {main_category_B_1}
-        * {sub_category_B_1}
-            * {detail_B_1}
-        * {sub_category_B_2}
-            * {detail_B_2}
+* {main_category_1}
+    * {sub_category_1}
+        * {item_1}
+            * {detail_1}
+            * {detail_2}
+        * {item_2}
+            * {detail_3}
+    * {sub_category_2}
+        * {item_3}
+            * {detail_4}
+* {main_category_2}
+    * {sub_category_3}
+        * {item_4}
+            * {detail_5}
+        * {item_5}
+            * {detail_6}
 
 ## Next Tasks
 

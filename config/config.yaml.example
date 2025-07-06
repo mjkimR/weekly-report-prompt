@@ -1,8 +1,9 @@
 author: author.name
 
-lang: "ko"  # language
+lang: english
 
 repository:
   - repository-path
 
-max_diff_lines: 25  # Maximum number of lines to show in a diff
+max_diff_lines: 200  # Maximum number of lines to show in a diff
+report_history_limit: 5
