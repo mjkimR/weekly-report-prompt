@@ -1,5 +1,3 @@
-# schemas.py
-
 from datetime import datetime
 from pydantic import BaseModel
 
@@ -21,7 +19,7 @@ class CommitData(BaseModel):
 
     @classmethod
     def from_commit(cls, commit, diff):
-        """커밋 객체로부터 CommitData 인스턴스 생성"""
+        """Create a CommitData instance from a commit object."""
         return cls(
             id=commit.hexsha,
             author=commit.author.name,

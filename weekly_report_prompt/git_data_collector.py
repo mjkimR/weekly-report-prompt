@@ -1,43 +1,40 @@
-# git_data_collector.py
-
 import git
-from datetime import datetime, timedelta
-from typing import List, Optional
+from datetime import datetime
+from typing import List
 
 from schemas import CommitData
+from config_loader import ConfigLoader
 
 
 class GitDataCollector:
-    def __init__(self, config_loader, repo_path: str = "."):
+    def __init__(self, config_loader: ConfigLoader, repo_path: str = "."):
         self.config_loader = config_loader
         self.author = config_loader.get_author()
         self.repo = git.Repo(repo_path)
 
     def collect_commits(
-            self,
-            days: int = 7,
-            target_date: Optional[datetime] = None
+        self,
+        since_date: datetime,
     ) -> List[CommitData]:
-        if target_date is None:
-            target_date = datetime.now()
-        since_date = target_date - timedelta(days=days)
-
+        """Collect commits since the given date, excluding merge commits and those not matching the configured author."""
         commits = []
         for commit in self.repo.iter_commits(since=since_date):
-            # merge commit 제외
+            # Exclude merge commits
             if len(commit.parents) > 1:
                 continue
-            # 작성자가 일치하지 않는 커밋 제외
+            # Exclude commits not matching the author
             if commit.author.name != self.author:
                 continue
 
-            commit_data = CommitData.from_commit(commit, self.get_commit_diff(commit.hexsha))
+            commit_data = CommitData.from_commit(
+                commit, self.get_commit_diff(commit.hexsha)
+            )
             commits.append(commit_data)
 
         return commits
 
     def get_commit_diff(self, commit_id: str) -> str:
-        """특정 커밋의 diff 정보 반환"""
+        """Return the diff information for a specific commit."""
         commit = self.repo.commit(commit_id)
         if len(commit.parents) > 0:
             return self.repo.git.diff(commit.parents[0], commit)
